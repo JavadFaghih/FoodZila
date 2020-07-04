@@ -17,6 +17,8 @@ class StoreFrontVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        IAPService.instance.delegate = self
+        IAPService.instance.loadProducts()
     }
     
     @IBAction func resoreBtnWasPressed(_ sender: Any) {
@@ -47,3 +49,13 @@ class StoreFrontVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
 }
 
+extension StoreFrontVC: IAPServiceDelegate {
+    func iapProductLoaded() {
+        print("apple service was loaded")
+    }
+    
+    
+    
+    
+    
+}

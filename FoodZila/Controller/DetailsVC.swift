@@ -44,4 +44,10 @@ class DetailsVC: UIViewController {
     dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func buyBtnWasPressed(_ sender: UIButton) {
+   
+        IAPService.instance.attemptPurchaseForItemWith(productIndex: .meal)
+        
+        
+    }
 }

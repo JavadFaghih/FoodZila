@@ -165,6 +165,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tE-PH-lMN">
                                         <rect key="frame" x="0.0" y="195.66666666666663" width="414" height="30.333333333333343"/>
                                         <state key="normal" title="buy this Item for $(dollar Amount)"/>
+                                        <connections>
+                                            <action selector="buyBtnWasPressed:" destination="Ucv-cC-kxi" eventType="touchUpInside" id="yq1-Kl-66O"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UU9-MG-hKJ">
                                         <rect key="frame" x="0.0" y="235" width="414" height="30"/>
