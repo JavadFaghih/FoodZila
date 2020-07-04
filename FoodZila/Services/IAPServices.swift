@@ -76,9 +76,11 @@ extension IAPService: SKPaymentTransactionObserver {
                 
           case .purchased:
             SKPaymentQueue.default().finishTransaction(transaction)
+            sendNotificationFor(status: .purchased, withIdentifier: transaction.payment.productIdentifier)
             debugPrint("purchased was successful")
           case .failed:
-            break
+            SKPaymentQueue.default().finishTransaction(transaction)
+            sendNotificationFor(status: .failed, withIdentifier: nil)
           case .restored:
             break
           case .deferred:
@@ -92,7 +94,21 @@ extension IAPService: SKPaymentTransactionObserver {
         }
     }
     
-    
+    func sendNotificationFor(status: PurchaseStatus, withIdentifier identifier: String?) {
+        
+        switch status {
+            
+        case .purchased:
+            NotificationCenter.default.post(name: NSNotification.Name.init(IAPServicePurchaseNotification), object: identifier)
+        case .restored:
+             NotificationCenter.default.post(name: NSNotification.Name.init(IAPServiceRestoreNotification), object: nil)
+        case .failed:
+            NotificationCenter.default.post(name: NSNotification.Name.init(IAPServiceFailureNotification), object: identifier)
+        }
+        
+        
+        
+    }
     
     
 }

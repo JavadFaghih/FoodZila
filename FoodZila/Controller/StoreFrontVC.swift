@@ -19,6 +19,7 @@ class StoreFrontVC: UIViewController, UICollectionViewDelegate, UICollectionView
         collectionView.dataSource = self
         IAPService.instance.delegate = self
         IAPService.instance.loadProducts()
+        
     }
     
     @IBAction func resoreBtnWasPressed(_ sender: Any) {
